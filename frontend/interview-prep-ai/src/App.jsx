@@ -14,12 +14,20 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={< LandingPage />} />
-          <Route path='/Login' element={< Login />} />
-          <Route path='/SignUp' element={< Signup />} />
+        
           <Route path='/dashboard' element={< Dashboard />} />
           <Route path='/interview-prep/:sessionId' element={< InterviewPrep />} />
         </Routes>
       </Router>
+
+      <Toaster
+  toastOptions={{
+    className: "",
+    style: {
+      fontSize: "13px",
+    },
+  }}
+/>
     </div>
   )
 }
