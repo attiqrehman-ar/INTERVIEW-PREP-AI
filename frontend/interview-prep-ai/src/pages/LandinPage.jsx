@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HERO_IMAGE from "../assets/hero-image.png";
 import { APP_FEATURES } from "../utils/data";
-
+import {LuSparkles} from "react-icons/lu"
 function LandinPage() {
   const navigate = useNavigate();
 
@@ -37,10 +37,10 @@ function LandinPage() {
     <section className="flex flex-col md:flex-row justify-between items-start gap-10">
       {/* Left Side: Headings */}
       <div className="w-full md:w-1/2">
-        <p className="inline-block px-4 py-1 text-sm font-semibold text-amber-800 bg-amber-100 border border-amber-600 rounded-full mb-4  ">
-          AI Powered
-        </p>
-
+      <p className="inline-flex items-center gap-2 px-4 py-1 text-sm font-semibold text-amber-800 bg-amber-100 border border-amber-600 rounded-full mb-4">
+  <LuSparkles className="w-4 h-4" />
+  AI Powered
+</p>
         <h1 className="text-4xl sm:text-5xl font-bold text-black leading-tight mb-4">
           Ace Interviews with <br />
           <span className="text-transparent bg-clip-text bg-[radial-gradient(circle,_#FF9324_0%,_#FCD760_100%)] bg-[length:200%_200%] animate-text-shine font-semibold">
