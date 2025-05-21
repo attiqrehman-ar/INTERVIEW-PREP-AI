@@ -34,7 +34,7 @@ function LandinPage() {
 
         {/* Hero Section */}
         <section className="max-w-3xl">
-          <p className="text-lg font-medium text-orange-500 uppercase mb-2">
+          <p className="text-lg font-semibold text-amber-600  mb-2">
             AI Powered
           </p>
 
