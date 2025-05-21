@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  background-color: #fcbfcf;
+  background-color: #eec2cd;
   overflow-x: hidden;
 }
 
@@ -88,7 +88,7 @@ body {
   animation: blob3 12s ease-in-out infinite;
 }
 
-.input-box {
+/* .input-box {
   @apply w-full flex justify-between gap-3 
          text-sm text-black bg-gray-50/50 
          rounded px-4 py-3 mt-3 mb-4 
@@ -112,4 +112,4 @@ body {
          px-7 py-2 rounded-lg 
          hover:bg-black hover:text-white 
          transition-colors cursor-pointer;
-}
+} */
