@@ -68,6 +68,50 @@ function LandinPage() {
   </div>
 </div>
 
+<div className="w-full min-h-full z-10 relative mb-56">
+<div>
+  <section className="flex items-center justify-center -mt-36">
+    <img className="w-[80vw] rounded-lg" src={HERO_IMAGE} alt="hero image" />
+  </section>
+</div>
+
+<div className="w-full min-h-full mt-10 bg-[#fffcef]">
+          <div className="mx-auto px-4 pt-10 container pb-20">
+            <section className="mt-5">
+              <h2 className="text-2xl font-medium text-center mb-12">
+                Features that make you shine
+              </h2>
+
+              {/* First 3 Features */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+                {APP_FEATURES.slice(0, 3).map((feature) => (
+                  <div
+                    key={feature.id}
+                    className="bg-[#FFFEF8] p-6 rounded-xl shadow-xs hover:shadow-lg shadow-amber-100 transition border border-amber-100"
+                  >
+                    <h3 className="text-base font-semibold mb-3">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Remaining Features */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-10">
+                {APP_FEATURES.slice(3).map((feature) => (
+                  <div
+                    key={feature.id}
+                    className="bg-[#FFFEF8] p-6 rounded-xl shadow-xs hover:shadow-lg shadow-amber-100 transition border border-amber-100"
+                  >
+                    <h3 className="text-base font-semibold mb-3">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
     </>
   );
 }
