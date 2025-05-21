@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import HERO_IMAGE from "../assets/hero-image.png";
 import { APP_FEATURES } from "../utils/data";
 import {LuSparkles} from "react-icons/lu"
+import Login from "./Auth/Login";
 function LandinPage() {
   const navigate = useNavigate();
 
@@ -68,7 +69,7 @@ function LandinPage() {
   </div>
 </div>
 
-<div className="w-full min-h-full z-10 relative mb-56">
+<div className="w-full min-h-full z-10 relative">
 <div>
   <section className="flex items-center justify-center -mt-36">
     <img className="w-[80vw] rounded-lg" src={HERO_IMAGE} alt="hero image" />
@@ -114,6 +115,23 @@ function LandinPage() {
           Made with Heart ... Attiq
         </div>
       </div>
+
+    <Modal
+    isOpen={openAuthModal}
+    onClose={()=>{
+      setOpenAuthModal(false);
+      setCurrentPage("login");
+    }}
+    hideHeader>
+      <div>
+{currentPage ==="login"&& (
+  <Login setCurrentPage={setCurrentPage} />
+)}
+{currentPage ==="signup"&& (
+  <Signup setCurrentPage={setCurrentPage} />
+)}
+      </div>
+    </Modal>
 
     </>
   );
