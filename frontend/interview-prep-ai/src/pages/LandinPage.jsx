@@ -4,7 +4,9 @@ import HERO_IMAGE from "../assets/hero-image.png";
 import { APP_FEATURES } from "../utils/data";
 import {LuSparkles} from "react-icons/lu"
 import Login from "./Auth/Login";
+
 import Modal from "../components/Modal";
+import Signup from "./Auth/Signup";
 function LandinPage() {
   const navigate = useNavigate();
 

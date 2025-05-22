@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate, useNavigation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Input from '../../components/Inputs/input';
 
 const Login = ({setCurrentPage}) => {
@@ -13,7 +13,7 @@ const Login = ({setCurrentPage}) => {
     e.preventDefault();
   };
   return (
-    <div className=' mb:w-[33vw] p-7 flex flex-col justify-center '>
+    <div className=' p-7 flex flex-col justify-center '>
       <h3 className='text-lg font-semibold text-black'>welcome back</h3>
       <p className='text-cs text-slate-700 mt-[5px] mb-4'>Please enter your details to login!</p>
        
@@ -29,8 +29,8 @@ LOGIN
  </button>
  <p className='text-[13px] text-slate-800 mt-3'>Don't have account?{" "}
   <button className='font-medium text-primary underline cursor-pointer' onClick={()=>{
-    setCurrentPage("Signup")
-  }}>
+    setCurrentPage ("signup")
+  }} type='button'>
 Signup
   </button >
  </p>
