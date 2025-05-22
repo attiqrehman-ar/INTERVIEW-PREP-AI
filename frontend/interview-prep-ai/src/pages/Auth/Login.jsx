@@ -5,7 +5,7 @@ import Input from '../../components/Inputs/input';
 const Login = ({setCurrentPage}) => {
   const [Email, setEmail] =useState("");
   const [Password, setPassword] =useState("");
-  const [Error, setError] =useState(null);
+  const [error, setError] =useState(null);
 
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ const Login = ({setCurrentPage}) => {
  label="email address" placeholder='attiqrehman130@gmail.com'/>
  <Input type="password"  value={Password} onChange={({ target })=>setPassword(target.value)}
  label="Password" placeholder='Enter your password'/>
- {Error && <p className='text-red-500 text-xs pb-2.5'>{Error}</p>}
+ {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
  <button type='submit' className='btn-primary'>
 LOGIN
 
