@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate, useNavigation } from 'react-router-dom';
 
-function Login() {
+const Login = ({setCurrentPage}) => {
+  const [Email, setEmail] =useState("");
+  const [Password, setPassword] =useState("");
+  const [Error, setError] =useState(null);
+
+  const navigate = useNavigate();
+
+  const handleLogin = async(e) =>{
+    e.preventDefault();
+  };
   return (
-    <div>Login</div>
+    <div className='w-[90vw] mb:w-[33vw] p-7 flex flex-col justify-center '>
+      <h3 className='text-lg font-semibold text-black'>welcome back</h3>
+      <p className='text-cs text-slate-700 mt-[5px] mb-4'>Please enter your details to login!</p>
+       
+       <form onSubmit={handleLogin}>
+<input type="text"  value={Email} onChange={({ target })=>setEmail(target.value)}
+ label="email address" placeholder='attiqrehman130@gmail.com'/>
+ <input type="password"  value={Password} onChange={({ target })=>setPassword(target.value)}
+ label="Password" placeholder='Enter your password'/>
+       </form>
+    </div>
   )
 }
 
