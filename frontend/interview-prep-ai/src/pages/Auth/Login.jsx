@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, useNavigation } from 'react-router-dom';
+import Input from '../../components/Inputs/input';
 
 const Login = ({setCurrentPage}) => {
   const [Email, setEmail] =useState("");
@@ -17,9 +18,9 @@ const Login = ({setCurrentPage}) => {
       <p className='text-cs text-slate-700 mt-[5px] mb-4'>Please enter your details to login!</p>
        
        <form onSubmit={handleLogin}>
-<input type="text"  value={Email} onChange={({ target })=>setEmail(target.value)}
+<Input type="text"  value={Email} onChange={({ target })=>setEmail(target.value)}
  label="email address" placeholder='attiqrehman130@gmail.com'/>
- <input type="password"  value={Password} onChange={({ target })=>setPassword(target.value)}
+ <Input type="password"  value={Password} onChange={({ target })=>setPassword(target.value)}
  label="Password" placeholder='Enter your password'/>
        </form>
     </div>
