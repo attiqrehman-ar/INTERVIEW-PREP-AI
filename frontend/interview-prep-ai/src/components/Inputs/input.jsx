@@ -1,42 +1,60 @@
-import React, { useState } from 'react';
-import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa6';
+'use client';
 
-const Input = ({ type, value, onChange, label, placeholder }) => {
+import React, { useState } from 'react';
+
+const Input = ({
+  label,
+  type,
+  name,
+  placeholder,
+  value,
+  onChange,
+  onBlur,
+  error,
+  touched,
+}) => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const toggleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+  const toggleShowPassword = () => setShowPassword(!showPassword);
+
+  const isPasswordType = type === 'password';
+  const inputType = isPasswordType && showPassword ? 'text' : type;
 
   return (
-    <div>
-      <label className='text-[13px] text-slate-800'>{label}</label>
-      <div className='input-box flex items-center border-b border-gray-300 py-2'>
+    <div className='mb-5'>
+      <label htmlFor={name} className='block mb-2 text-sm font-medium text-gray-900'>
+        {label}
+      </label>
+
+      <div className='relative'>
         <input
-          type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
+          type={inputType}
+          name={name}
+          id={name}
           placeholder={placeholder}
-          className='w-full bg-transparent outline-none text-sm px-2'
           value={value}
           onChange={onChange}
+          onBlur={onBlur}
+          className={`w-full px-4 py-3 text-sm text-gray-900 bg-gray-100 border ${
+            error && touched ? 'border-red-500' : 'border-orange-400'
+          } rounded-md focus:outline-none focus:ring-2 ${
+            error && touched ? 'focus:ring-red-400' : 'focus:ring-orange-300'
+          } ${isPasswordType ? 'pr-12' : ''}`} // extra padding for eye icon
         />
-        {type === 'password' && (
-          <>
-            {showPassword ? (
-              <FaRegEye
-                size={20}
-                className='text-primary cursor-pointer'
-                onClick={toggleShowPassword}
-              />
-            ) : (
-              <FaRegEyeSlash
-                size={20}
-                className='text-slate-400 cursor-pointer'
-                onClick={toggleShowPassword}
-              />
-            )}
-          </>
+
+        {isPasswordType && (
+          <span
+            className='absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-orange-500 cursor-pointer'
+            onClick={toggleShowPassword}
+          >
+            {showPassword ? '🙈' : '👁️'} {/* Replace with real icons if needed */}
+          </span>
         )}
       </div>
+
+      {error && touched && (
+        <p className='mt-1 text-sm text-red-500'>{error}</p>
+      )}
     </div>
   );
 };
