@@ -22,6 +22,18 @@ const Login = ({setCurrentPage}) => {
  label="email address" placeholder='attiqrehman130@gmail.com'/>
  <Input type="password"  value={Password} onChange={({ target })=>setPassword(target.value)}
  label="Password" placeholder='Enter your password'/>
+ {Error && <p className='text-red-500 text-xs pb-2.5'>{Error}</p>}
+ <button type='submit' className='btn-primary'>
+LOGIN
+
+ </button>
+ <p className='text-[13px] text-slate-800 mt-3'>Don't have account?{" "}
+  <button className='font-medium text-primary underline cursor-pointer' onClick={()=>{
+    setCurrentPage("Signup")
+  }}>
+Signup
+  </button >
+ </p>
        </form>
     </div>
   )
