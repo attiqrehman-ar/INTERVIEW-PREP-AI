@@ -39,7 +39,7 @@ const ProfilePhoteSelector = ({ image, setImage, preview, setPreview}) => {
             <LuUpload />
           </button>
           </div>
-      ): <div className="">
+      ): <div className=" relative">
         <img src={preview || previewUrl} alt="Profile photo" className='' />
         <button type='button' onClick={handleRemoveImage} className=''> <LuTrash />
         </button>
