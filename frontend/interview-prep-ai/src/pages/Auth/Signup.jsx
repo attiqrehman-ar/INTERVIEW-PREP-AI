@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/Inputs/input';
 import ProfilePhoteSelector from '../../components/Inputs/ProfilePhoteSelector';
+import { validateEmail } from '../../utils/helper';
 
 const Signup = ({ setCurrentPage }) => {
   const [profilePic, setProfilePic] = useState(null);
@@ -15,6 +16,34 @@ const Signup = ({ setCurrentPage }) => {
   const handleSignup = async (e) => {
     e.preventDefault();
     // TODO: Add signup logic here
+    let profileImageUrl="";
+    if(!fullName){
+      setError('Please Enter full name!');
+      return;
+    }
+    if(!validateEmail(email)){
+      setError('Please enter your valid email address');
+      return;
+
+    }
+    if(!password){
+      setError("please enter strong password!!!");
+      return;
+
+    }
+    setError=('');
+
+// signup api call
+    try {
+    
+  
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        setError("Something went wrong! Please try again.");
+      }
+    }
   };
 
   return (
