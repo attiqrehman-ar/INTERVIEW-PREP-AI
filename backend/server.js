@@ -7,13 +7,13 @@ const app = express();
 
 //middleware to handle cors
 
-app.use{
+app.use(
     cors({
         origin:"*",
         methods:["GET","POST","PUT","DELETE"],
         allowedHeaders:["Content-Type","Authorization"],
-    });
-};
+    })
+);
 
 // Middleware
 app.use(express.json());
