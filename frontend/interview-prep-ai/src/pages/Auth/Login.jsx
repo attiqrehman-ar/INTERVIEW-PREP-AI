@@ -11,6 +11,28 @@ const Login = ({setCurrentPage}) => {
 
   const handleLogin = async(e) =>{
     e.preventDefault();
+
+    if(!validateEmail(Email)){
+      setError('Please enter valid Email Address!');
+      return;
+    }
+    if(!validatePassword(Password)){
+      setError('Please enter correct password!');
+      return;
+    }
+    setError("");
+
+    //Login APi CALL
+    try{
+
+    }catch(error){
+      if(error.response && error.response.data.message){
+        setError(error.response.data.message)
+      }else{
+        setError("something went wrong! please try again.")
+
+      }
+    }
   };
   return (
     <div className=' p-7 flex flex-col justify-center '>
