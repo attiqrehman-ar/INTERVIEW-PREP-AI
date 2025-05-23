@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import{LuUser, LuUpload, LuTrash } from "react-icons/lu";
 
 
@@ -18,9 +18,34 @@ const ProfilePhoteSelector = ({ image, setImage, preview, setPreview}) => {
             setPreviewUrl(preview);
         }
     };
-    // const handleRemoveImage=
+     const handleRemoveImage=()=>{
+      setImage(null);
+      setPreviewUrl(null);
+      if(setPreview){
+        setPreviewUrl(null);
+      }
+    };
+    
+    const onChooseFile=()=>{
+      inputRef.current.click();
+    };
   return (
-    <div>ProfilePhoteSelector</div>
+    <div className='flex justify-center mb-6'>
+      <input type="file" accept='image/*' ref={inputRef} onChange={handleImageChange}  className="hidden" />
+      {!image ?(
+        <div className='w-20 h-20 flex justify-center items-center bg-orange-50 rounded-full relative cusror-pointer'>
+          <LuUser className='text-4xl text-orange-500'/>
+          <button type='button' onClick={onChooseFile} className='w-8 h-8 items-center justify-center flex bg-orange-50 bg-linear-to-r from-orange-500/85 to-orange-600 text-white rounded-full absolute -bottom-1 -right-1 cursor-pointer'>
+            <LuUpload />
+          </button>
+          </div>
+      ): <div className="">
+        <img src={preview || previewUrl} alt="Profile photo" className='' />
+        <button type='button' onClick={handleRemoveImage} className=''> <LuTrash />
+        </button>
+</div>
+      }
+    </div>
   )
 }
 
